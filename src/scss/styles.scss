@@ -1,0 +1,397 @@
+@import url("https://fonts.googleapis.com/css?family=Palanquin+Dark:700|Quicksand:300,400,500,700|Righteous");
+
+// variables
+
+$bubbles: #e8f0ff;
+$lightGrey: #f0f0f0;
+$darkGrey: #4a4a4a;
+
+$purple: #9560e6;
+$blue: #6aa7e4;
+$turquoise: #50d5e3;
+
+$headerFont: "Palanquin Dark";
+
+// mixins
+
+@mixin gradient {
+  background: linear-gradient(to bottom, $turquoise, $blue, $purple);
+}
+
+body {
+  background-color: white;
+  font-family: Quicksand;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: $darkGrey;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+// navigation
+
+.navbar-brand {
+  font-family: "Righteous";
+  text-transform: uppercase;
+  color: $bubbles;
+  font-size: xx-large;
+  &:hover {
+    color: $bubbles;
+  }
+}
+
+.navbar-nav a {
+  color: $bubbles;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: $headerFont;
+}
+
+nav.nav-active {
+  background-color: white;
+  border-bottom: 1px solid $darkGrey;
+  a {
+    color: $darkGrey;
+  }
+  .navbar-brand {
+    color: $darkGrey;
+  }
+  #navbarNav {
+    background: transparent;
+  }
+}
+
+.navbar .navbar-nav > li > a:hover {
+  color: $purple;
+}
+
+@media (max-width: 768px) {
+  #navbarNav.navbarBG {
+    background: rgba(74, 74, 74, 0.9);
+  }
+}
+
+// hero section
+
+#hero {
+  height: 100vh;
+  position: relative;
+  #hero-background {
+    @include gradient();
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+  }
+  .jumbotron {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    #hero-text {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: $bubbles;
+      margin: 0 3%;
+    }
+    #hero-image {
+      width: 50%;
+      margin-left: 0.5rem;
+      img {
+        width: 80%;
+        margin: 0 10%;
+      }
+    }
+    #hero-btn {
+      background: transparent;
+      border: 1px solid $bubbles;
+      width: 50%;
+      text-transform: uppercase;
+      a {
+        color: $bubbles;
+      }
+      &:hover {
+        background-color: $bubbles;
+        border: 1px solid $bubbles;
+        a,
+        a:hover {
+          color: $blue;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1500px) {
+  #hero {
+    .jumbotron {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+    #hero-text {
+      font-size: xx-large;
+      h1 {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #hero {
+    #hero-text {
+      .display-5 {
+        font-size: 1.5rem;
+      }
+    }
+    #hero-btn {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  #hero {
+    height: 100%;
+    .jumbotron {
+      padding: 4rem 1.5rem 1rem 1.5rem;
+      flex-direction: column;
+      #hero-text {
+        width: 100%;
+        padding: 1rem 0;
+        align-items: center;
+        text-align: center;
+      }
+      #hero-image {
+        width: 75%;
+      }
+    }
+  }
+}
+
+// about section
+
+#about {
+  .card {
+    border: none;
+    background: transparent;
+  }
+  .row {
+    background-color: $bubbles;
+  }
+  .about-span {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $darkGrey;
+  }
+  .card-img-container {
+    width: 100%;
+    height: 4rem;
+  }
+  .card-img-top {
+    width: auto;
+    height: 100%;
+  }
+}
+
+// services section
+
+#services {
+  .card {
+    border: none;
+    background: transparent;
+  }
+  .card-img-top {
+    width: 20%;
+  }
+  .card-title {
+    color: $darkGrey;
+    font-size: 1.2rem;
+  }
+}
+
+// projects section
+
+#projects {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  #projects-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    @include gradient();
+  }
+}
+
+#projects-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  & * {
+    color: $bubbles;
+    text-align: right;
+  }
+  h2 {
+    margin-top: 3rem;
+    margin-right: 3rem;
+    padding-top: 1rem;
+  }
+  p {
+    margin-bottom: 3rem;
+    margin-right: 3rem;
+  }
+}
+
+#projects-wrapper {
+  transform: rotateX(-55deg) rotateZ(-45deg);
+  transform-origin: top left;
+  display: flex;
+  position: absolute;
+  left: -60%;
+  top: 60%;
+  max-width: 100%;
+  .projects-column {
+    .projects-item {
+      margin: 1rem;
+      max-width: 450px;
+      max-height: 300px;
+      box-shadow: -13px 13px 15px -7px rgba(0, 0, 0, 0.2);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+        &:hover {
+          transform: translate(3%, -3%);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  #projects {
+    #projects-text {
+      margin: 5%;
+    }
+    p {
+      font-size: larger;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  #projects {
+    #projects-text {
+      position: relative;
+      width: 100%;
+      h2,
+      p {
+        margin: 1rem;
+        text-align: center;
+      }
+    }
+    #projects-wrapper {
+      .projects-column {
+        .projects-item {
+          margin: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+// pricing section
+
+#pricing {
+  .card {
+    border: 1px solid $blue;
+    border-radius: 0;
+  }
+  .card-body * {
+    text-transform: uppercase;
+  }
+  .card-title {
+    @include gradient();
+    color: $bubbles;
+    font-family: $headerFont;
+  }
+
+  .list-group-item {
+    border: none;
+    &::before {
+      content: "\002714";
+      margin-right: 0.5rem;
+      color: $blue;
+    }
+  }
+  .btn {
+    background: transparent;
+    word-wrap: break-word;
+    border: 1px solid $purple;
+    color: $purple;
+    &:hover {
+      color: $bubbles;
+      border: 1px solid $purple;
+      background-color: $purple;
+    }
+  }
+}
+
+// footer
+
+footer {
+  font-size: smaller;
+  background-color: $darkGrey;
+  #contact-info * {
+    color: $bubbles;
+  }
+  #sm-links {
+    ul {
+      height: 100%;
+      margin-left: auto;
+    }
+    li {
+      display: inline-block;
+    }
+    li * {
+      color: $bubbles;
+    }
+  }
+}
+
+#footer #sm-links ul > li > a:hover > i {
+  color: $turquoise;
+}
+
+@media (max-width: 400px) {
+  #footer {
+    display: block !important;
+    #contact-info {
+      text-align: center;
+    }
+    #sm-links {
+      ul {
+        padding-left: 0;
+        justify-content: center;
+      }
+    }
+  }
+}
